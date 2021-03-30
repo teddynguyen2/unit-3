@@ -1,24 +1,24 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
 .map {
-    border: #e2ebf0;
+    border: medium solid #999;
 }
 
 .countries {
-    fill: #13547a;
+    fill: #FFF;
     stroke: #CCC;
     stroke-width: 2px;
 }
 
 .regions {
-	fill: #13547a;
-	stroke: #13547a;
-	stroke-width: 2px;
+    fill: #FFF;
+    stroke: #CCC;
+    stroke-width: 2px;
 }
 
 .gratLines {
-    fill: #13547a;
-    stroke: #e2ebf0;
+    fill: none;
+    stroke: #999;
     stroke-width: 1px;
 }
 
