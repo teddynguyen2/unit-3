@@ -74,7 +74,7 @@ function callback(data){
             .enter()
             .append("path")
             .attr("class", function(d){
-                return "states " + d.properties.NAME_1;
+                return "states " + d.properties.id_code;
             })
             .attr("d", path);
 
