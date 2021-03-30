@@ -1,7 +1,7 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
 .map {
-    border: medium solid #999;
+    border: #e2ebf0;
 }
 
 .countries {
@@ -11,7 +11,7 @@
 }
 
 .regions {
-	fill: #a1c4fd;
+	fill: #13547a;
 	stroke: #CCC;
 	stroke-width: 2px;
 }
@@ -23,5 +23,5 @@
 }
 
 .gratBackground {
-    fill: #cfd9df → #e2ebf0;
+    fill: #D5E3FF;
 }
