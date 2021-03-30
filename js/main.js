@@ -14,9 +14,9 @@ window.onload = setMap();
 
     //create Albers equal area conic projection centered on Spain
     var projection = d3.geoAlbers()
-        .center([2, 51])
-        .rotate([-8, 0])
-        .parallels([48, 53.6])
+        .center([0, 46.2])
+        .rotate([-2, 0])
+        .parallels([43, 62])
         .scale(2500)
         .translate([width / 2, height / 2]);
 
