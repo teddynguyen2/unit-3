@@ -69,12 +69,12 @@ function callback(data){
             .attr("d", path);
 
         //add Spain autonomous communities to map
-        var states = map.selectAll(".regions")
+        var regions = map.selectAll(".regions")
             .data(spainRegions)
             .enter()
             .append("path")
             .attr("class", function(d){
-                return "states " + d.properties.id_code;
+                return "regions " + d.properties.id_code;
             })
             .attr("d", path);
 
