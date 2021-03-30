@@ -80,5 +80,3 @@ function callback(data){
 
 	};
 };
-
-
