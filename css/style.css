@@ -5,14 +5,14 @@
 }
 
 .countries {
-    fill: ##a1c4fd → #c2e9fb;
+    fill: #FFF;
     stroke: #CCC;
     stroke-width: 2px;
 }
 
 .regions {
 	fill: #a1c4fd → #c2e9fb;
-	stroke: #CCC;
+	stroke: #a1c4fd → #c2e9fb;
 	stroke-width: 2px;
 }
 
