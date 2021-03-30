@@ -42,7 +42,7 @@ function callback(data){
 
 //translate europe TopoJSON
         var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-            spainRegions = topojson.feature(spain, spain.objects.SpainRegions).features;
+            spainRegions = topojson.feature(spain, spain.objects.SpainRegions);
 
 //create graticule generator
         var graticule = d3.geoGraticule()
