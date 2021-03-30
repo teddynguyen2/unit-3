@@ -1,21 +1,27 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
-.axis path,
-.axis line {
-    fill: none;
-    stroke: black;
+.map {
+    border: medium solid #999;
+}
+
+.countries {
+    fill: #ccc;
+    stroke: #fff;
     stroke-width: 1px;
-    shape-rendering: crispEdges;
 }
 
-.axis text {
-    font-family: sans-serif;
-    font-size: 0.9em;
+.states {
+	fill: #006d2c;
+	stroke: #fff;
+	stroke-width: 2px;
 }
 
-.title {
-    font-family: sans-serif;
-    font-size: 1.5em;
-    font-weight: bold;
+.gratLines {
+    fill: none;
+    stroke: #fff;
+    stroke-width: .5px;
 }
 
+.gratBackground {
+    fill: #c6dbef;
+}
