@@ -2,7 +2,7 @@
 window.onload = setMap();
 
 //map frame dimensions
-    var width = 2000,
+    var width = 2500,
         height = 2000;
 
     //create new svg container for the map
