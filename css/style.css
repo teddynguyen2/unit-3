@@ -5,23 +5,23 @@
 }
 
 .countries {
-    fill: #ccc;
-    stroke: #fff;
-    stroke-width: 1px;
+    fill: #FFF;
+    stroke: #CCC;
+    stroke-width: 2px;
 }
 
-.states {
-	fill: #006d2c;
-	stroke: #fff;
+.regions {
+	fill: rgb(100, 100, 100);
+	stroke: #CCC;
 	stroke-width: 2px;
 }
 
 .gratLines {
     fill: none;
-    stroke: #fff;
-    stroke-width: .5px;
+    stroke: #999;
+    stroke-width: 1px;
 }
 
 .gratBackground {
-    fill: #c6dbef;
+    fill: #D5E3FF;
 }
