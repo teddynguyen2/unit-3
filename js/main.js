@@ -269,4 +269,3 @@ var numbers = chart.selectAll(".numbers")
 
     };
 })();
-
