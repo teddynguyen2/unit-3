@@ -258,10 +258,10 @@ var numbers = chart.selectAll(".numbers")
             return "numbers " + d.NAME;
         })
         .attr("x", function(d, i){
-            return i * (chartInnerWidth / csvData.length) + leftPadding;
+            return i * (chartInnerWidth / csvData.length) + leftPadding +6;
         })
         .attr("y", function(d, i){
-            return yScale(parseFloat(d[expressed])) + topBottomPadding;
+            return yScale(parseFloat(d[expressed])) + topBottomPadding -5;
         })
         .text(function(d){
             return d[expressed];
