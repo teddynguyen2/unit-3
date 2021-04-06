@@ -255,7 +255,7 @@ var numbers = chart.selectAll(".numbers")
             return b[expressed]-a[expressed]
         })
         .attr("class", function(d){
-            return "numbers " + d.NAME;
+            return "numbers " + d.id_code;
         })
         .attr("x", function(d, i){
             return i * (chartInnerWidth / csvData.length) + leftPadding;
