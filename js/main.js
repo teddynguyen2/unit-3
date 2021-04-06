@@ -225,7 +225,7 @@ function setChart(csvData, colorScale){
         .attr("x", 40)
         .attr("y", 40)
         .attr("class", "chartTitle")
-        .text("Number of Variable " + expressed + " in each region");
+        .text("Number of Variable " + expressed[3] + " in each region");
 
     //create vertical axis generator
     var yAxis = d3.axisLeft()
