@@ -275,29 +275,28 @@
         //annotate bars with attribute value text
         var desc = bars.append("desc")
         .text('{"stroke": "none", "stroke-width": "0px"}');
-        };
         
-//         var numbers = chart
-//             .selectAll(".numbers")
-//             .data(csvData)
-//             .enter()
-//             .append("text")
-//             .sort(function (a, b) {
-//                 return b[expressed] - a[expressed];
-//             })
-//             .attr("class", function (d) {
-//                 return "numbers " + d.id_code;
-//             })
-//             .attr("x", function (d, i) {
-//                 return i * (chartInnerWidth / csvData.length) + leftPadding;
-//             })
-//             .attr("y", function (d, i) {
-//                 return yScale(parseFloat(d[expressed])) + topBottomPadding;
-//             })
-//             .text(function (d) {
-//                 return d[expressed];
-//             });
-    //}
+        var numbers = chart
+            .selectAll(".numbers")
+            .data(csvData)
+            .enter()
+            .append("text")
+            .sort(function (a, b) {
+                return b[expressed] - a[expressed];
+            })
+            .attr("class", function (d) {
+                return "numbers " + d.id_code;
+            })
+            .attr("x", function (d, i) {
+                return i * (chartInnerWidth / csvData.length) + leftPadding;
+            })
+            .attr("y", function (d, i) {
+                return yScale(parseFloat(d[expressed])) + topBottomPadding;
+            })
+            .text(function (d) {
+                return d[expressed];
+            })
+    };
 
 function createDropdown(){
     //add select element
