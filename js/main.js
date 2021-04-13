@@ -77,6 +77,11 @@
             setEnumerationUnits(spainRegions, map, path, colorScale);
             //add coordinated visualization to the map
             setChart(csvData, colorScale);
+            createDropdown();
+            d3.select("#classbutton").on("change", function () {
+                changeAttribute(expressed, csvData);
+            });
+            createLegend(csvData, expressed);           
         }
     }
 
@@ -107,14 +112,12 @@
         //loop through csv to assign each set of csv attribute values to geojson region
         for (var i = 0; i < csvData.length; i++) {
             var csvRegion = csvData[i]; //the current region
-            //console.log(csvRegion.id_code);
             var csvKey = csvRegion.id_code; //the CSV primary key
 
             //loop through geojson regions to find correct region
             for (var a = 0; a < spainRegions.length; a++) {
                 var geojsonProps = spainRegions[a].properties; //the current region geojson properties
                 var geojsonKey = geojsonProps.id_code; //the geojson primary key
-                //console.log(geojsonKey, csvKey);
 
                 //where primary keys match, transfer csv data to geojson properties object
                 if (geojsonKey == csvKey) {
@@ -149,6 +152,11 @@
         domainArray = clusters.map(function (d) {
             return d3.min(d);
         });
+        
+        categories = clusters.map(function (d) {
+                return d3.max(d);
+        });
+        
         //remove first value from domain array to create class breakpoints
         domainArray.shift();
 
@@ -202,7 +210,7 @@
 
         //create a second svg element to hold the bar chart
         var chart = d3
-            .select("body")
+            .select("#chart")
             .append("svg")
             .attr("width", chartWidth)
             .attr("height", chartHeight)
@@ -232,6 +240,13 @@
                 return "bars " + d.id_code;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
+        
+             .on("mouseover", function(event, d){
+             highlight(d);
+             }).on("mouseout", function(event, d){
+             dehighlight(d);
+             }).on("mousemove", moveLabel);
+        
             .attr("x", function (d, i) {
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
             })
@@ -243,7 +258,7 @@
             })
             .style("fill", function (d) {
                 return colorScale(d[expressed]);
-            });
+            })
 
         //create a text element for the chart title
         var chartTitle = chart
@@ -252,6 +267,7 @@
             .attr("y", 40)
             .attr("class", "chartTitle")
             .text(expressed + " in each region");
+            updateChart(bars, csvData.length, colorScale);
 
         //create vertical axis generator
         var yAxis = d3.axisLeft().scale(yScale);
@@ -268,7 +284,10 @@
             .attr("transform", translate);
 
         //annotate bars with attribute value text
-
+        var desc = bars.append("desc")
+        .text('{"stroke": "none", "stroke-width": "0px"}');
+        };
+        
         var numbers = chart
             .selectAll(".numbers")
             .data(csvData)
@@ -336,13 +355,13 @@ function changeAttribute(attribute, csvData){
             }
     });
 
-//re-sort, resize, and recolor bars
+//bars are modified
     var bars = d3.selectAll(".bar")
         //re-sort bars
         .sort(function(a, b){
             return b[expressed] - a[expressed];
         })
-        .transition() //add animation
+        .transition()
         .delay(function(d, i){
             return i * 20
         })
