@@ -278,9 +278,7 @@
             .attr("transform", translate);
 
         //annotate bars with attribute value text
-        var desc = bars.append("desc")
-        .text('{"stroke": "none", "stroke-width": "0px"}');
-        };
+
         
         var numbers = chart
             .selectAll(".numbers")
