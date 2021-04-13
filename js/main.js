@@ -486,3 +486,4 @@ function moveLabel(){
         .style("top", y + "px");
 };
 })();
+
