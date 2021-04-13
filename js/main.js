@@ -206,8 +206,8 @@
         })
         .on("mousemove", moveLabel);
 
-//         var desc = regions.append("desc")
-//         .text('{"stroke": "#000", "stroke-width": "0.5px"}');
+        var desc = regions.append("desc")
+        .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     }
 
     //function to create coordinated bar chart
@@ -278,8 +278,8 @@
 
         //annotate bars with attribute value text
         
-//         var desc = bars.append("desc")
-//         .text('{"stroke": "none", "stroke-width": "0px"}');
+        var desc = bars.append("desc")
+        .text('{"stroke": "none", "stroke-width": "0px"}');
         
 //         var numbers = chart
 //             .selectAll(".numbers")
