@@ -1,6 +1,6 @@
 /* Stylesheet by Theodore Nguyen, 2021 */
 
-html,body {
+html {
     background-color: #DFCFBE;
     font-family: font-family: "Garamond", serif;
     font-size: 1rem;
@@ -23,16 +23,6 @@ html,body {
     stroke-width: 2px;
 }
 
-.gratLines {
-    fill: none;
-    stroke: #999;
-    stroke-width: 1px;
-}
-
-.gratBackground {
-    fill: #D5E3FF;
-}
-
 .chart {
     float: right;
     margin: 7px 20px 0 0;
@@ -53,6 +43,16 @@ html,body {
     stroke: #999;
     stroke-width: 3px;
     shape-rendering: crispEdges;
+}
+
+.gratLines {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1px;
+}
+
+.gratBackground {
+    fill: #D5E3FF;
 }
 
 .axis path,
