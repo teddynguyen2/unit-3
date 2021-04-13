@@ -291,5 +291,181 @@ function createDropdown(){
         .on("change", function(){
             changeAttribute(this.value, csvData)
         });
+    
+    //add initial option
+    var titleOption = dropdown.append("option")
+        .attr("class", "titleOption")
+        .attr("disabled", "true")
+        .text("Select Attribute");
+
+    //add attribute name options
+    var attrOptions = dropdown.selectAll("attrOptions")
+        .data(attrArray)
+        .enter()
+        .append("option")
+        .attr("value", function(d){ return d })
+        .text(function(d){ return d });
+    };
+
+//dropdown change listener handler
+function changeAttribute(attribute, csvData){
+    //change the expressed attribute
+    expressed = attribute;
+
+    //recreate the color scale
+    var colorScale = makeColorScale(csvData);
+
+    //recolor enumeration units
+    var regions = d3.selectAll(".regions")
+        .transition()
+        .duration(1000)
+        .style("fill", function(d){
+            var value = d.properties[expressed];
+            if(value) {
+                return colorScale(value);
+            } else {
+                return "#ccc";
+            }
+    });
+
+//re-sort, resize, and recolor bars
+    var bars = d3.selectAll(".bar")
+        //re-sort bars
+        .sort(function(a, b){
+            return b[expressed] - a[expressed];
+        })
+        .transition() //add animation
+        .delay(function(d, i){
+            return i * 20
+        })
+        .duration(500);
+
+    updateChart(bars, csvData.length, colorScale);
+    createLegend(csvData, expressed);
+};
+
+function updateChart(bars, n, colorScale){
+    //position bars
+    bars.attr("x", function(d, i){
+            return i * (chartInnerWidth / n) + leftPadding;
+        })
+        //size/resize bars
+        .attr("height", function(d, i){
+            return 463 - yScale(parseFloat(d[expressed]));
+        })
+        .attr("y", function(d, i){
+            return yScale(parseFloat(d[expressed])) + topBottomPadding;
+        })
+        //color/recolor bars
+        .style("fill", function(d){
+            var value = d[expressed];
+            if(value) {
+                return colorScale(value);
+            } else {
+                return "#ccc";
+            }
+    });
+
+    //at the bottom of updateChart()...add text to chart title
+    var chartTitle = d3.select(".chartTitle")
+        .text("Number of " + expressed + " in each region");
+}
+
+//function to highlight enumeration units and bars
+function highlight(props){
+    //change stroke
+    var selected = d3.selectAll("." + props.id_code)
+        .style("stroke", "blue")
+        .style("stroke-width", "2");
+        setLabel(props);
+};
+
+function dehighlight(props){
+    var selected = d3.selectAll("." + props.id_code)
+        .style("stroke", function(){
+            return getStyle(this, "stroke")
+        })
+        .style("stroke-width", function(){
+            return getStyle(this, "stroke-width")
+        });
+
+    function getStyle(element, styleName){
+        var styleText = d3.select(element)
+            .select("desc")
+            .text();
+
+        var styleObject = JSON.parse(styleText);
+        return styleObject[styleName];
+    };
+    //remove info label
+    d3.select(".infolabel")
+        .remove();
+};
+
+//creating a legend
+function createLegend(csvData, expressed) {
+    var scale = d3.scaleThreshold()
+        .domain(categories)
+        .range(colorClasses);
+
+    d3.select('#legend').append('svg').attr('class', 'legendBox');
+    var legend = d3.select("svg.legendBox");
+
+    legend.append("g")
+        .attr("class", "legend")
+        .attr("transform", "translate(15,20)");
+    
+    var colorLegend = d3.legendColor()
+        .shapeWidth(30)
+        .orient('vertical')
+        .ascending(true)
+        .scale(scale)
+        .title('% ' + expressed)
+        .labels(d3.legendHelpers.thresholdLabels)
+
+    legend.select(".legend")
+        .call(colorLegend);
+};
+
+//function to create dynamic label
+function setLabel(props){
+    //label content
+    var labelAttribute = "<h1>" + props[expressed] +
+        "</h1><b>" + expressed + "</b>";
+
+    //create info label div
+    var infolabel = d3.select("body")
+        .append("div")
+        .attr("class", "infolabel")
+        .attr("id", props.id_code + "_label")
+        .html(labelAttribute);
+
+    var regionName = infolabel.append("div")
+        .attr("class", "labelname")
+        .html(props.id_code);
+};
+
+//function to move info label with mouse
+function moveLabel(){
+    //get width of label
+    var labelWidth = d3.select(".infolabel")
+        .node()
+        .getBoundingClientRect()
+        .width;
+    
+    //use coordinates of mousemove event to set label coordinates
+    var x1 = event.clientX + 10,
+        y1 = event.clientY - 75,
+        x2 = event.clientX - labelWidth - 10,
+        y2 = event.clientY + 25;
+
+    //horizontal label coordinate, testing for overflow
+    var x = event.clientX > window.innerWidth - labelWidth - 20 ? x2 : x1; 
+    //vertical label coordinate, testing for overflow
+    var y = event.clientY < 75 ? y2 : y1; 
+
+    d3.select(".infolabel")
+        .style("left", x + "px")
+        .style("top", y + "px");
 };
 })();
