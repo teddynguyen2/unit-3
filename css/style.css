@@ -39,7 +39,7 @@ html {
 }
 
 .chartFrame {
-    fill: #999;
+    fill: none;
     stroke: #999;
     stroke-width: 3px;
     shape-rendering: crispEdges;
@@ -129,9 +129,9 @@ option {
     color: #E15D44;
 } */
 
-/* #information{
+#information{
     line-height: 1;
     padding-top: 5px;
     color: #E15D44;
-} */
+}
 
