@@ -184,7 +184,7 @@
         })
         .on("mousemove", moveLabel);
 
-        var desc = states.append("desc")
+        var desc = regions.append("desc")
         .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     }
 
