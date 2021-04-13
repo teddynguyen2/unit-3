@@ -54,13 +54,13 @@
             //place graticule on the map
             setGraticule(map, path);
 
-            //console.log(spain.objects.SpainRegions);
+            //setting id_code for prop
             for (var i = 0; i < spain.objects.SpainRegions.geometries.length; i++) {
                 var prop = spain.objects.SpainRegions.geometries[i].properties;
                 var id_code = spain.objects.SpainRegions.geometries[i].id_code;
                 prop["id_code"] = id_code;
-                //console.log(prop);
             }
+            
             //translate europe TopoJSON
             var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
                 spainRegions = topojson.feature(spain, spain.objects.SpainRegions).features;
@@ -270,7 +270,7 @@
                 return b[expressed] - a[expressed];
             })
             .attr("class", function (d) {
-                return "numbers " + d.NAME;
+                return "numbers " + d.id_code;
             })
             .attr("x", function (d, i) {
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
