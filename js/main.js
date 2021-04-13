@@ -288,6 +288,8 @@ function createDropdown(){
     var dropdown = d3.select("body")
         .append("select")
         .attr("class", "dropdown")
+        .on("change", function(){
+            changeAttribute(this.value, csvData)
         });
 
     //add initial option
