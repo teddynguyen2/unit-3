@@ -2,7 +2,8 @@
 
 html,body {
     background-color: #DFCFBE;
-    font-family: font-family: "Garamond", serif; ;  
+    text-align: center;
+    font-family: font-family: "Garamond", serif;
     font-size: 1rem;
     color: #E15D44;
 }
