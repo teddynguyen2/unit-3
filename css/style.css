@@ -110,7 +110,7 @@ option {
     top: -75px;
 }
 
-.legendBox {
+/* .legendBox {
     position: absolute;
     right: 25px;
     top: 15px;
@@ -120,18 +120,18 @@ option {
 
 .legendTitle {
     font-weight: bold !important;
-}
+} */
 
-#classbutton{
+/* #classbutton{
     position: absolute;
     left: 45px;
     top: 5px;
     color: #E15D44;
-}
+} */
 
-#information{
+/* #information{
     line-height: 1;
     padding-top: 5px;
     color: #E15D44;
-}
+} */
 
