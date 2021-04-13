@@ -245,7 +245,7 @@
              highlight(d);
              }).on("mouseout", function(event, d){
              dehighlight(d);
-             }).on("mousemove", moveLabel);
+             }).on("mousemove", moveLabel)
         
             .attr("x", function (d, i) {
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
