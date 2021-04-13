@@ -215,7 +215,7 @@
 
         //create a second svg element to hold the bar chart
         var chart = d3
-            .select("#chart")
+            .select("#body")
             .append("svg")
             .attr("width", chartWidth)
             .attr("height", chartHeight)
