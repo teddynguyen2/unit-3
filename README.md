@@ -1,6 +1,8 @@
-# Title: _Choropleth Visualization of Various Aggregate Data Types in the Autonomous Communities of Spain_
+# Title: **Choropleth Visualization of Various Aggregate Data Types in the Autonomous Communities of Spain**
 
-## Author: Theodore Nguyen
+## Author: 
+
+Theodore Nguyen
 
 # Description: 
 
