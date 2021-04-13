@@ -95,7 +95,7 @@
             d3.select("#classbutton").on("change", function () {
                 changeAttribute(expressed, csvData);
             });
-            createLegend(csvData, expressed);           
+            //createLegend(csvData, expressed);           
         }
     }
 
@@ -358,7 +358,7 @@ function changeAttribute(attribute, csvData){
         .duration(800);
 
     updateChart(bars, csvData.length, colorScale);
-    createLegend(csvData, expressed);
+    //createLegend(csvData, expressed);
 };
 
 function updateChart(bars, n, colorScale){
@@ -420,29 +420,29 @@ function dehighlight(props){
 };
 
 //creating a legend
-function createLegend(csvData, expressed) {
-    var scale = d3.scaleThreshold()
-        .domain(categories)
-        .range(colorClasses)
+// function createLegend(csvData, expressed) {
+//     var scale = d3.scaleThreshold()
+//         .domain(categories)
+//         .range(colorClasses)
 
-    d3.select('#legend').append('svg').attr('class', 'legendBox');
-    var legend = d3.select("svg.legendBox");
+//     d3.select('#legend').append('svg').attr('class', 'legendBox');
+//     var legend = d3.select("svg.legendBox");
 
-    legend.append("g")
-        .attr("class", "legend")
-        .attr("transform", "translate(15,20)");
+//     legend.append("g")
+//         .attr("class", "legend")
+//         .attr("transform", "translate(15,20)");
     
-    var colorLegend = d3.legendColor()
-        .shapeWidth(30)
-        .orient('vertical')
-        .ascending(true)
-        .scale(scale)
-        .title('% ' + expressed)
-        .labels(d3.legendHelpers.thresholdLabels)
+//     var colorLegend = d3.legendColor()
+//         .shapeWidth(30)
+//         .orient('vertical')
+//         .ascending(true)
+//         .scale(scale)
+//         .title('% ' + expressed)
+//         .labels(d3.legendHelpers.thresholdLabels)
 
-    legend.select(".legend")
-        .call(colorLegend);
-};
+//     legend.select(".legend")
+//         .call(colorLegend);
+// };
 
 //function to create dynamic label
 function setLabel(props){
