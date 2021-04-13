@@ -140,9 +140,9 @@
                         var val = parseFloat(csvRegion[attr]); //get csv attribute value
                         geojsonProps[attr] = val; //assign attribute and value to geojson properties
                     });
-                }
-            }
-        }
+                };
+            };
+        };
         return spainRegions;
     }
 
