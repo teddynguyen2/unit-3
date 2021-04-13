@@ -1,4 +1,5 @@
-# Title: **Choropleth Visualization of Various Aggregate Data Types in the Autonomous Communities of Spain**
+# Title: 
+**Choropleth Visualization of Various Aggregate Data Types in the Autonomous Communities of Spain**
 
 ## Author: 
 
