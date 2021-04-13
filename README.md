@@ -6,7 +6,7 @@ Theodore Nguyen
 
 # Description
 
-This multivariate data captures the area (km²), median income (€), GDP in billions, percentage of GDP, GDP per capita, and HDI (Human Development Index) of 19 autonomous communities in Spain, visualized as a choropleth map with a supporting bar chart.
+This multivariate data set captures the area (km²), median income (€), GDP in billions, percentage of GDP, GDP per capita, and HDI (Human Development Index) of the autonomous communities in Spain, visualized as a choropleth map with a supporting bar chart.
 
 # Citations
 
