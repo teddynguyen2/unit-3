@@ -169,15 +169,23 @@
             })
             .attr("d", path)
             .style("fill", function (d) {
-                // return colorScale(d.properties[expressed]);
                 var value = d.properties[expressed];
-                console.log(d);
                 if (value) {
                     return colorScale(d.properties[expressed]);
                 } else {
                     return "#ccc";
                 }
-            });
+             })
+        .on("mouseover", function(event, d){
+            highlight(d.properties);
+        })
+        .on("mouseout", function(event, d){
+            dehighlight(d.properties);
+        })
+        .on("mousemove", moveLabel);
+
+        var desc = states.append("desc")
+        .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     }
 
     //function to create coordinated bar chart
