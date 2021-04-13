@@ -92,9 +92,9 @@
             //add coordinated visualization to the map
             setChart(csvData, colorScale);
             createDropdown();
-            d3.select("#classbutton").on("change", function () {
-                changeAttribute(expressed, csvData);
-            });
+//             d3.select("#classbutton").on("change", function () {
+//                 changeAttribute(expressed, csvData);
+//             });
             //createLegend(csvData, expressed);           
         }
     }
