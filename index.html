@@ -59,25 +59,6 @@
 	<script type="text/javascript" src="lib/d3-legend.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script> 
 	
-	var quantize = d3.scaleQuantize()
-	      .domain([ 0, 0.15 ])
-	      .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
-
-	    var svg = d3.select("svg");
-
-	    svg.append("g")
-	      .attr("class", "legendQuant")
-	      .attr("transform", "translate(20,20)");
-
-	    var legend = d3.legendColor()
-	      .labelFormat(d3.format(".2f"))
-	      .useClass(true)
-	      .title("A really really really really")
-	      .titleWidth(100)
-	      .scale(quantize);
-
-	    svg.select(".legendQuant")
-	      .call(legend);
     </body>
 </html>
 
