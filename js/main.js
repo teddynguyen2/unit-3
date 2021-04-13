@@ -35,7 +35,7 @@
 
         //create new svg container for the map
         var map = d3
-            .select("body")
+            .select("#map")
             .append("svg")
             .attr("class", "map")
             .attr("width", width)
@@ -215,7 +215,7 @@
 
         //create a second svg element to hold the bar chart
         var chart = d3
-            .select("#body")
+            .select("#chart")
             .append("svg")
             .attr("width", chartWidth)
             .attr("height", chartHeight)
@@ -249,10 +249,8 @@
             highlight(d);
             }).on("mouseout", function(event, d){
             dehighlight(d);
-            }).on("mousemove", moveLabel);
-        
+            }).on("mousemove", moveLabel);      
           
-
         //create a text element for the chart title
         var chartTitle = chart
             .append("text")
