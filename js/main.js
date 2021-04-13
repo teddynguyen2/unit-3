@@ -9,6 +9,8 @@
     ];
     var expressed = attrArray[0];
     var categories;
+    
+    var colorClasses = ["#D4B9DA", "#C994C7", "#DF65B0", "#DD1C77", "#980043"];
 
     //begin script when window loads
     window.onload = setMap();
@@ -134,7 +136,6 @@
 
     //function to create color scale generator
     function makeColorScale(data) {
-        var colorClasses = ["#D4B9DA", "#C994C7", "#DF65B0", "#DD1C77", "#980043"];
 
         //create color scale generator
         var colorScale = d3.scaleThreshold().range(colorClasses);
