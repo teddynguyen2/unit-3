@@ -162,13 +162,14 @@
         //cluster data using ckmeans clustering algorithm to create natural breaks
         var clusters = ss.ckmeans(domainArray, 5);
         //reset domain array to cluster minimums
+       
         domainArray = clusters.map(function (d) {
             return d3.min(d);
         });
         
-        categories = clusters.map(function (d) {
-                return d3.max(d);
-        });
+//         categories = clusters.map(function (d) {
+//                 return d3.max(d);
+//         });
         
         //remove first value from domain array to create class breakpoints
         domainArray.shift();
