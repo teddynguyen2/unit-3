@@ -206,8 +206,8 @@
         })
         .on("mousemove", moveLabel);
 
-        var desc = regions.append("desc")
-        .text('{"stroke": "#000", "stroke-width": "0.5px"}');
+//         var desc = regions.append("desc")
+//         .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     }
 
     //function to create coordinated bar chart
@@ -247,9 +247,11 @@
             .attr("width", chartInnerWidth / csvData.length - 1)
             .on("mouseover", function(event, d){
             highlight(d);
-            }).on("mouseout", function(event, d){
+            })
+            .on("mouseout", function(event, d){
             dehighlight(d);
-            }).on("mousemove", moveLabel);      
+            })
+            .on("mousemove", moveLabel);      
           
         //create a text element for the chart title
         var chartTitle = chart
@@ -275,29 +277,30 @@
             .attr("transform", translate);
 
         //annotate bars with attribute value text
-        var desc = bars.append("desc")
-        .text('{"stroke": "none", "stroke-width": "0px"}');
         
-        var numbers = chart
-            .selectAll(".numbers")
-            .data(csvData)
-            .enter()
-            .append("text")
-            .sort(function (a, b) {
-                return b[expressed] - a[expressed];
-            })
-            .attr("class", function (d) {
-                return "numbers " + d.id_code;
-            })
-            .attr("x", function (d, i) {
-                return i * (chartInnerWidth / csvData.length) + leftPadding;
-            })
-            .attr("y", function (d, i) {
-                return yScale(parseFloat(d[expressed])) + topBottomPadding;
-            })
-            .text(function (d) {
-                return d[expressed];
-            })
+//         var desc = bars.append("desc")
+//         .text('{"stroke": "none", "stroke-width": "0px"}');
+        
+//         var numbers = chart
+//             .selectAll(".numbers")
+//             .data(csvData)
+//             .enter()
+//             .append("text")
+//             .sort(function (a, b) {
+//                 return b[expressed] - a[expressed];
+//             })
+//             .attr("class", function (d) {
+//                 return "numbers " + d.id_code;
+//             })
+//             .attr("x", function (d, i) {
+//                 return i * (chartInnerWidth / csvData.length) + leftPadding;
+//             })
+//             .attr("y", function (d, i) {
+//                 return yScale(parseFloat(d[expressed])) + topBottomPadding;
+//             })
+//             .text(function (d) {
+//                 return d[expressed];
+//             })
     };
 
 function createDropdown(){
