@@ -109,29 +109,3 @@ option {
     padding: 5px 10px;
     top: -75px;
 }
-
-/* .legendBox {
-    position: absolute;
-    right: 25px;
-    top: 15px;
-    fill: #0074D9;
-    font-size: 0.8em;
-}
-
-.legendTitle {
-    font-weight: bold !important;
-} */
-
-/* #classbutton{
-    position: absolute;
-    left: 45px;
-    top: 5px;
-    color: #E15D44;
-} */
-
-#information{
-    line-height: 1;
-    padding-top: 5px;
-    color: #E15D44;
-}
-
