@@ -24,7 +24,7 @@ html {
 }
 
 .chart {
-    float: none;
+    float: right;
     margin: 7px 20px 0 0;
 }
 
@@ -39,7 +39,7 @@ html {
 }
 
 .chartFrame {
-    fill: none;
+    fill: #999;
     stroke: #999;
     stroke-width: 3px;
     shape-rendering: crispEdges;
