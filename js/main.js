@@ -10,6 +10,9 @@
     var expressed = attrArray[0];
     var categories;
     
+    //global variable
+    var colorClasses = ["#b3cde0", "#6497b1", "#005b96", "#03396c", "#011f4b"];
+    
     //chart frame dimensions
         var chartWidth = window.innerWidth * 0.425,
             chartHeight = 473,
@@ -20,8 +23,7 @@
             chartInnerHeight = chartHeight - topBottomPadding * 2,
             translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
     
-    //global variables
-    var colorClasses = ["#b3cde0", "#6497b1", "#005b96", "#03396c", "#011f4b"];
+    //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear().range([463, 0]).domain([0, 100]);
     
     //begin script when window loads
@@ -91,11 +93,7 @@
             setEnumerationUnits(spainRegions, map, path, colorScale);
             //add coordinated visualization to the map
             setChart(csvData, colorScale);
-            createDropdown();
-//             d3.select("#classbutton").on("change", function () {
-//                 changeAttribute(expressed, csvData);
-//             });
-            //createLegend(csvData, expressed);           
+            createDropdown();     
         }
     }
 
@@ -121,7 +119,6 @@
     }
 
     function joinData(spainRegions, csvData) {
-        //console.log(csvData[0]);
 
         //loop through csv to assign each set of csv attribute values to geojson region
         for (var i = 0; i < csvData.length; i++) {
@@ -166,11 +163,7 @@
         domainArray = clusters.map(function (d) {
             return d3.min(d);
         });
-        
-//         categories = clusters.map(function (d) {
-//                 return d3.max(d);
-//         });
-        
+
         //remove first value from domain array to create class breakpoints
         domainArray.shift();
 
@@ -276,31 +269,30 @@
             .attr("height", chartInnerHeight)
             .attr("transform", translate);
 
-        //annotate bars with attribute value text
-        
+        //annotate bars with attribute value text 
         var desc = bars.append("desc")
         .text('{"stroke": "none", "stroke-width": "0px"}');
         
-//         var numbers = chart
-//             .selectAll(".numbers")
-//             .data(csvData)
-//             .enter()
-//             .append("text")
-//             .sort(function (a, b) {
-//                 return b[expressed] - a[expressed];
-//             })
-//             .attr("class", function (d) {
-//                 return "numbers " + d.id_code;
-//             })
-//             .attr("x", function (d, i) {
-//                 return i * (chartInnerWidth / csvData.length) + leftPadding;
-//             })
-//             .attr("y", function (d, i) {
-//                 return yScale(parseFloat(d[expressed])) + topBottomPadding;
-//             })
-//             .text(function (d) {
-//                 return d[expressed];
-//             })
+        var numbers = chart
+            .selectAll(".numbers")
+            .data(csvData)
+            .enter()
+            .append("text")
+            .sort(function (a, b) {
+                return b[expressed] - a[expressed];
+            })
+            .attr("class", function (d) {
+                return "numbers " + d.id_code;
+            })
+            .attr("x", function (d, i) {
+                return i * (chartInnerWidth / csvData.length) + leftPadding;
+            })
+            .attr("y", function (d, i) {
+                return yScale(parseFloat(d[expressed])) + topBottomPadding;
+            })
+            .text(function (d) {
+                return d[expressed];
+            })
     };
 
 function createDropdown(){
@@ -348,7 +340,7 @@ function changeAttribute(attribute, csvData){
             }
     });
 
-//bars are modified
+    //bars are modified
     var bars = d3.selectAll(".bar")
         .sort(function(a, b){
             return b[expressed] - a[expressed];
@@ -358,9 +350,8 @@ function changeAttribute(attribute, csvData){
             return i * 20
         })
         .duration(800);
-
-//     updateChart(bars, csvData.length, colorScale);
-    //createLegend(csvData, expressed);
+    
+    updateChart(bars, csvData.length, colorScale);
 };
 
 function updateChart(bars, n, colorScale){
@@ -386,9 +377,8 @@ function updateChart(bars, n, colorScale){
         })
 
     //at the bottom of updateChart()...add text to chart title
-
-    //     var chartTitle = d3.select(".chartTitle")
-//         .text("Number of " + expressed + " in each region");
+    var chartTitle = d3.select(".chartTitle")
+    .text("Number of " + expressed + " in each region");
 }
 
 //function to highlight enumeration units and bars
@@ -421,31 +411,6 @@ function dehighlight(props){
     d3.select(".infolabel")
         .remove();
 };
-
-//creating a legend
-// function createLegend(csvData, expressed) {
-//     var scale = d3.scaleThreshold()
-//         .domain(categories)
-//         .range(colorClasses)
-
-//     d3.select('#legend').append('svg').attr('class', 'legendBox');
-//     var legend = d3.select("svg.legendBox");
-
-//     legend.append("g")
-//         .attr("class", "legend")
-//         .attr("transform", "translate(15,20)");
-    
-//     var colorLegend = d3.legendColor()
-//         .shapeWidth(30)
-//         .orient('vertical')
-//         .ascending(true)
-//         .scale(scale)
-//         .title('% ' + expressed)
-//         .labels(d3.legendHelpers.thresholdLabels)
-
-//     legend.select(".legend")
-//         .call(colorLegend);
-// };
 
 //function to create dynamic label
 function setLabel(props){
