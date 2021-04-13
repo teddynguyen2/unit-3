@@ -425,7 +425,7 @@ function dehighlight(props){
 function createLegend(csvData, expressed) {
     var scale = d3.scaleThreshold()
         .domain(categories)
-        .range(colorClasses);
+        .range(colorClasses)
 
     d3.select('#legend').append('svg').attr('class', 'legendBox');
     var legend = d3.select("svg.legendBox");
