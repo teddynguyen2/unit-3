@@ -382,7 +382,7 @@ function updateChart(bars, n, colorScale){
             } else {
                 return "#ccc";
             }
-    });
+        })
 
     //at the bottom of updateChart()...add text to chart title
     var chartTitle = d3.select(".chartTitle")
