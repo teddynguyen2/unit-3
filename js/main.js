@@ -241,19 +241,13 @@
                 return "bars " + d.id_code;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
+            .on("mouseover", function(event, d){
+            highlight(d);
+            }).on("mouseout", function(event, d){
+            dehighlight(d);
+            }).on("mousemove", moveLabel);
         
-            .attr("x", function (d, i) {
-                return i * (chartInnerWidth / csvData.length) + leftPadding;
-            })
-            .attr("height", function (d, i) {
-                return 463 - yScale(parseFloat(d[expressed]));
-            })
-            .attr("y", function (d, i) {
-                return yScale(parseFloat(d[expressed])) + topBottomPadding;
-            })
-            .style("fill", function (d) {
-                return colorScale(d[expressed]);
-            })
+          
 
         //create a text element for the chart title
         var chartTitle = chart
@@ -338,7 +332,7 @@ function changeAttribute(attribute, csvData){
     //recolor enumeration units
     var regions = d3.selectAll(".regions")
         .transition()
-        .duration(1000)
+        .duration(800)
         .style("fill", function(d){
             var value = d.properties[expressed];
             if(value) {
@@ -350,7 +344,6 @@ function changeAttribute(attribute, csvData){
 
 //bars are modified
     var bars = d3.selectAll(".bar")
-        //re-sort bars
         .sort(function(a, b){
             return b[expressed] - a[expressed];
         })
@@ -358,7 +351,7 @@ function changeAttribute(attribute, csvData){
         .delay(function(d, i){
             return i * 20
         })
-        .duration(500);
+        .duration(800);
 
     updateChart(bars, csvData.length, colorScale);
     createLegend(csvData, expressed);
