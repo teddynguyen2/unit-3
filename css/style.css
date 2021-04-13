@@ -127,3 +127,16 @@ option {
 input[type=radio] {
     margin-right: 5px;
 }
+
+#classbutton{
+    position: absolute;
+    left: 45px;
+    top: 5px;
+    color: #E15D44;
+}
+
+#information{
+    line-height: 1;
+    padding-top: 5px;
+    color: #E15D44;
+}
