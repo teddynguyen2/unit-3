@@ -25,11 +25,7 @@
     
     //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear().range([463, 0]).domain([0, 100]);
-    
-    var createtextbox = document.createElement("INPUT");
-    createtextbox.setAttribute("type", "text");
-
-    
+  
     //begin script when window loads
     window.onload = setMap();
 
