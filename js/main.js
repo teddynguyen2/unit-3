@@ -241,12 +241,6 @@
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
         
-             .on("mouseover", function(event, d){
-             highlight(d);
-             }).on("mouseout", function(event, d){
-             dehighlight(d);
-             }).on("mousemove", moveLabel)
-        
             .attr("x", function (d, i) {
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
             })
