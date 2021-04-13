@@ -13,19 +13,6 @@
         <![endif]-->
         <!--you can also place internal styles here;
              place these within <style> tags-->
-	    <div>
- 	    <svg id="my_dataviz" height=300 width=450></svg>
-	    </div>
-        
-	    <script>
-	// select the svg area
-	var svg = d3.select("#my_dataviz")
-	// Handmade legend
-	svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2")
-	svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "#404080")
-	svg.append("text").attr("x", 220).attr("y", 130).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
-	svg.append("text").attr("x", 220).attr("y", 160).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
-	</script>   
     </head>
 
     <body>
