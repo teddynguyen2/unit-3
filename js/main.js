@@ -20,7 +20,7 @@
             chartInnerHeight = chartHeight - topBottomPadding * 2,
             translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
     
-    var colorClasses = ["#D4B9DA", "#C994C7", "#DF65B0", "#DD1C77", "#980043"];
+    var colorClasses = ["#b3cde0", "#6497b1", "#005b96", "#03396c", "#011f4b"];
 
     var yScale = d3.scaleLinear().range([463, 0]).domain([0, 100]);
     
