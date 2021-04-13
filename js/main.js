@@ -20,8 +20,8 @@
             chartInnerHeight = chartHeight - topBottomPadding * 2,
             translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
     
+    //global variables
     var colorClasses = ["#b3cde0", "#6497b1", "#005b96", "#03396c", "#011f4b"];
-
     var yScale = d3.scaleLinear().range([463, 0]).domain([0, 100]);
     
     //begin script when window loads
@@ -359,7 +359,7 @@ function changeAttribute(attribute, csvData){
         })
         .duration(800);
 
-    updateChart(bars, csvData.length, colorScale);
+//     updateChart(bars, csvData.length, colorScale);
     //createLegend(csvData, expressed);
 };
 
@@ -386,8 +386,9 @@ function updateChart(bars, n, colorScale){
         })
 
     //at the bottom of updateChart()...add text to chart title
-    var chartTitle = d3.select(".chartTitle")
-        .text("Number of " + expressed + " in each region");
+
+    //     var chartTitle = d3.select(".chartTitle")
+//         .text("Number of " + expressed + " in each region");
 }
 
 //function to highlight enumeration units and bars
@@ -488,4 +489,3 @@ function moveLabel(){
         .style("top", y + "px");
 };
 })();
-
