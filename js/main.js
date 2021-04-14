@@ -378,7 +378,7 @@ function updateChart(bars, n, colorScale){
 
     //at the bottom of updateChart()...add text to chart title
     var chartTitle = d3.select(".chartTitle")
-    .text("Number of " + expressed + " in each region");
+    .text(expressed + " in each region");
 }
 
 //function to highlight enumeration units and bars
