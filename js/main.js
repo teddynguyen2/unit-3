@@ -197,9 +197,9 @@
         .on("mouseover", function(event, d){
             highlight(d.properties);
         })
-        .on("mouseout", function(event, d){
-            dehighlight(d.properties);
-        })
+//         .on("mouseout", function(event, d){
+//             dehighlight(d.properties);
+//         })
         .on("mousemove", moveLabel);
 
         var desc = regions.append("desc")
@@ -241,9 +241,9 @@
             .on("mouseover", function(event, d){
             highlight(d);
             })
-            .on("mouseout", function(event, d){
-            dehighlight(d);
-            })
+//             .on("mouseout", function(event, d){
+//             dehighlight(d);
+//             })
             .on("mousemove", moveLabel);      
           
         //create a text element for the chart title
