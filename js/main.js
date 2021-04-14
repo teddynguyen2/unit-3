@@ -1,4 +1,5 @@
 (function () {
+    //array shows the various data types that will be displayed on the choropleth map
     var attrArray = [
         "Area (km²)",
         "Median income (€)",
@@ -62,6 +63,7 @@
         ];
         Promise.all(promises).then(callback);
 
+        //callback function takes parameter data
         function callback(data) {
             csvData = data[0];
             europe = data[1];
@@ -88,6 +90,7 @@
                 .attr("class", "countries")
                 .attr("d", path);
 
+            //setting chart and dropdown
             spainRegions = joinData(spainRegions, csvData);
             var colorScale = makeColorScale(csvData);
             setEnumerationUnits(spainRegions, map, path, colorScale);
@@ -117,7 +120,7 @@
             .attr("class", "gratLines") //assign class for styling
             .attr("d", path); //project graticule lines
     }
-
+    
     function joinData(spainRegions, csvData) {
 
         //loop through csv to assign each set of csv attribute values to geojson region
@@ -222,9 +225,6 @@
             .attr("height", chartInnerHeight)
             .attr("transform", translate);
 
-        //create a scale to size bars proportionally to frame and for axis
-//         var yScale = d3.scaleLinear().range([463, 0]).domain([0, 100]);
-
         //set bars for each province
         var bars = chart
             .selectAll(".bar")
@@ -295,6 +295,7 @@
             })
     };
 
+//select several dropdown options to rexpress data displayed on the map
 function createDropdown(){
     //add select element
     var dropdown = d3.select("body")
@@ -351,9 +352,11 @@ function changeAttribute(attribute, csvData){
         })
         .duration(800);
     
+    //calls function for updating the chart
     updateChart(bars, csvData.length, colorScale);
 };
-
+    
+//modifies the chart based on parameters
 function updateChart(bars, n, colorScale){
     //position bars
     bars.attr("x", function(d, i){
@@ -390,6 +393,7 @@ function highlight(props){
         setLabel(props);
 };
 
+//remove highlights
 function dehighlight(props){
     var selected = d3.selectAll("." + props.id_code)
         .style("stroke", function(){
