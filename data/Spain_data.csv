@@ -1,4 +1,4 @@
-Autonomous community of Spain,id_code,Area (km²),Median income (€),GDP in billions (€),Percentage of GDP (%),GDP per capita (€),Human Development Index (HDI)
+Autonomous community of Spain,id_code,Area (km²),Median income (€, in thousands),GDP in billions (€),Percentage of GDP (%),GDP per capita (€, in thousands),Human Development Index (HDI)
 Andalusia,ES-1000,"87,268","20,650",160.6,13.4,"19,107",0.862
 Aragon,ES-1001,"47,719","21,406",37,3.1,"28,151",0.898
 Asturias,ES-1002,"10,604","22,722",23.3,1.9,"22,789",0.887
