@@ -2,10 +2,10 @@
     //array shows the various data types that will be displayed on the choropleth map
     var attrArray = [
         "Area (km²)",
-        "Median income (€, in thousands)",
+        "Median income (€)",
         "GDP in billions (€)",
         "Percentage of GDP (%)",
-        "GDP per capita (€, in thousands)",
+        "GDP per capita (€)",
         "Human Development Index (HDI)",
     ];
     var expressed = attrArray[0];
