@@ -282,7 +282,7 @@
                 return b[expressed] - a[expressed];
             })
             .attr("class", function (d) {
-                return "numbers " + d.id_code;
+                return "numbers_" + d.id_code;
             })
             .attr("x", function (d, i) {
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
